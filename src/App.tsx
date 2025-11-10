@@ -1,5 +1,11 @@
+import { TabelaPrincipal } from "./components/tabelaPrincipal/tabelaPrincipal";
+
 function App() {
-  return <div>Primeiro commit do projeto!</div>;
+  return (
+    <>
+      <TabelaPrincipal />
+    </>
+  );
 }
 
 export default App;
