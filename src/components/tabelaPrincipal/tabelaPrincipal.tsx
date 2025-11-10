@@ -53,7 +53,7 @@ const dadosTeste: DataItem[] = [
   },
 ];
 
-export const MainTable = () => {
+export const TabelaPrincipal = () => {
   return (
     <Box
       sx={{

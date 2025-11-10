@@ -1,9 +1,9 @@
-import { MainTable } from "./components/mainTable/mainTable";
+import { TabelaPrincipal } from "./components/tabelaPrincipal/tabelaPrincipal";
 
 function App() {
   return (
     <>
-      <MainTable />
+      <TabelaPrincipal />
     </>
   );
 }
