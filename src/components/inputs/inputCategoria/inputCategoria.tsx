@@ -1,38 +1,20 @@
 import { MenuItem, TextField } from "@mui/material";
+import { mockDataCategorias } from "./inputCategoria.static";
 
 const InputCategoria = () => {
-  const categorias = [
-    {
-      value: "Alimentação",
-      label: "Alimentação",
-    },
-    {
-      value: "Transporte",
-      label: "Transporte",
-    },
-    {
-      value: "Lazer",
-      label: "Lazer",
-    },
-    {
-      value: "Multas",
-      label: "Multas",
-    },
-  ];
-
   return (
     <TextField
       select
       variant="outlined"
-      defaultValue={categorias[0].value}
+      defaultValue={mockDataCategorias[0].value}
       label="Categoria"
       margin="normal"
       fullWidth
       required
     >
-      {categorias.map((option) => (
-        <MenuItem key={option.value} value={option.value}>
-          {option.label}
+      {mockDataCategorias.map((categoria) => (
+        <MenuItem key={categoria.value} value={categoria.value}>
+          {categoria.label}
         </MenuItem>
       ))}
     </TextField>

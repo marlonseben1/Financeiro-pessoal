@@ -1,37 +1,20 @@
 import { MenuItem, TextField } from "@mui/material";
+import { mockDataContas } from "./inputConta.static";
 
 const InputConta = () => {
-  const contas = [
-    {
-      value: "Caixa Interno",
-      label: "Caixa Interno",
-    },
-    {
-      value: "Nubank",
-      label: "Nubank",
-    },
-    {
-      value: "Inter",
-      label: "Inter",
-    },
-    {
-      value: "Sicredi",
-      label: "Sicredi",
-    },
-  ];
-
   return (
     <TextField
       select
       variant="outlined"
-      defaultValue={contas[0].value}
+      defaultValue={mockDataContas[0].value}
       label="Conta"
       margin="normal"
       required
+      fullWidth
     >
-      {contas.map((option) => (
-        <MenuItem key={option.value} value={option.value}>
-          {option.label}
+      {mockDataContas.map((conta) => (
+        <MenuItem key={conta.value} value={conta.value}>
+          {conta.label}
         </MenuItem>
       ))}
     </TextField>
