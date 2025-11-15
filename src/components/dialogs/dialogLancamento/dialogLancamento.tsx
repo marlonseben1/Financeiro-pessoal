@@ -13,6 +13,7 @@ import InputConta from "../../inputs/inputConta/inputConta";
 import InputData from "../../inputs/inputData/inputData";
 import InputDescricao from "../../inputs/inputDescricao/inputDescricao";
 import InputTipoDocumento from "../../inputs/inputTipoDocumento/inputTipoDocumento";
+import InputFornecedor from "../../inputs/inputFornecedor/inputFornecedor";
 
 export const DialogLancamento = (props: DialogLancamentoProps) => {
   return (
@@ -37,8 +38,12 @@ export const DialogLancamento = (props: DialogLancamentoProps) => {
               <InputDescricao />
             </Grid>
 
-            <Grid size={12}>
+            <Grid size={4}>
               <InputTipoDocumento />
+            </Grid>
+
+            <Grid size={8}>
+              <InputFornecedor />
             </Grid>
           </Grid>
         </Box>

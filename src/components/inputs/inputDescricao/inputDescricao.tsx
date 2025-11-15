@@ -5,7 +5,6 @@ const InputDescricao = () => {
     <TextField
       label="Descrição"
       variant="outlined"
-      required
       placeholder="Adicione uma descrição"
       fullWidth
     />
