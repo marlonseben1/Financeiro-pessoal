@@ -8,27 +8,47 @@ import {
   TableRow,
   TableCell,
   TableBody,
+  Popover,
+  Button,
+  Divider,
 } from "@mui/material";
 import { MdOutlineDehaze } from "react-icons/md";
 import { BotaoLancamento } from "../../components/buttons/botaoLancamento/botaoLancamento";
 import { useState } from "react";
 import { DialogLancamento } from "../../components/dialogs/dialogLancamento/dialogLancamento";
 import { dadosTeste } from "./tabelaPrincipalMockData";
+import { FaMagnifyingGlass } from "react-icons/fa6";
+import { colorPalette } from "../../theme";
+import { FaDownload } from "react-icons/fa";
 
 export const TabelaPrincipal = () => {
-  const [open, setOpen] = useState(false);
+  const [openDialogLancamento, setOpenDialogLancamento] = useState(false);
+  const [anchorEl, setAnchorEl] = useState<HTMLButtonElement | null>(null);
   const [tipoSelecionado, setTipoSelecionado] = useState<"receita" | "despesa">(
     "despesa"
   );
 
   const handleAbrirDialogLancamento = (tipo: "receita" | "despesa") => {
     setTipoSelecionado(tipo);
-    setOpen(true);
+    setOpenDialogLancamento(true);
   };
 
   const handleFecharDialogLancamento = () => {
-    setOpen(false);
+    setOpenDialogLancamento(false);
   };
+
+  const handleAbrirPopoverAcoes = (
+    event: React.MouseEvent<HTMLButtonElement>
+  ) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleFecharPopoverAcoes = () => {
+    setAnchorEl(null);
+  };
+
+  const open = !!anchorEl;
+  const id = open ? "popover-acoes" : undefined;
 
   return (
     <>
@@ -105,9 +125,69 @@ export const TabelaPrincipal = () => {
                   <Typography>{row.metodo}</Typography>
                 </TableCell>
                 <TableCell align="left">
-                  <IconButton>
-                    <MdOutlineDehaze size={22} color="black" />
+                  <IconButton onClick={handleAbrirPopoverAcoes}>
+                    <MdOutlineDehaze
+                      size={22}
+                      color={colorPalette.neutral[900]}
+                    />
                   </IconButton>
+                  <Popover
+                    id={id}
+                    open={open}
+                    anchorEl={anchorEl}
+                    onClose={handleFecharPopoverAcoes}
+                    anchorOrigin={{
+                      vertical: "bottom",
+                      horizontal: "left",
+                    }}
+                    transformOrigin={{
+                      vertical: "top",
+                      horizontal: "center",
+                    }}
+                    slotProps={{
+                      paper: {
+                        elevation: 1,
+                      },
+                    }}
+                  >
+                    <Button>
+                      <div
+                        style={{
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "space-between",
+                          gap: ".5rem",
+                        }}
+                      >
+                        <FaMagnifyingGlass color={colorPalette.neutral[500]} />
+                        <Typography
+                          color={colorPalette.neutral[500]}
+                          textTransform={"none"}
+                        >
+                          Visualizar
+                        </Typography>
+                      </div>
+                    </Button>
+                    <Divider />
+                    <Button>
+                      <div
+                        style={{
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "space-between",
+                          gap: ".5rem",
+                        }}
+                      >
+                        <FaDownload color={colorPalette.neutral[500]} />
+                        <Typography
+                          color={colorPalette.neutral[500]}
+                          textTransform={"none"}
+                        >
+                          Baixar
+                        </Typography>
+                      </div>
+                    </Button>
+                  </Popover>
                 </TableCell>
               </TableRow>
             ))}
@@ -115,7 +195,7 @@ export const TabelaPrincipal = () => {
         </Table>
       </TableContainer>
       <DialogLancamento
-        open={open}
+        open={openDialogLancamento}
         onClose={handleFecharDialogLancamento}
         tipo={tipoSelecionado}
       />
