@@ -1,6 +1,6 @@
-import type { DataItem } from "./tabelaPrincipal.types";
+import type { DataItem } from "./despesas.types";
 
-export const dadosTeste: DataItem[] = [
+export const despesasMockData: DataItem[] = [
   {
     id: 1,
     lancamento: "10/11/2025",
