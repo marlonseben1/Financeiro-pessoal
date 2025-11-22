@@ -1,41 +1,24 @@
 import {
-  Typography,
-  Paper,
-  IconButton,
-  TableContainer,
-  Table,
-  TableHead,
-  TableRow,
-  TableCell,
-  TableBody,
-  Popover,
   Button,
   Divider,
+  IconButton,
+  Popover,
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
+  Typography,
 } from "@mui/material";
-import { MdOutlineDehaze } from "react-icons/md";
-import { BotaoLancamento } from "../../components/buttons/botaoLancamento/botaoLancamento";
-import { useState } from "react";
-import { DialogLancamento } from "../../components/dialogs/dialogLancamento/dialogLancamento";
-import { dadosTeste } from "./tabelaPrincipalMockData";
-import { FaMagnifyingGlass } from "react-icons/fa6";
+import { ContasMockData } from "./contasMockData";
+import { MdDelete, MdOutlineDehaze } from "react-icons/md";
 import { colorPalette } from "../../theme";
-import { FaDownload } from "react-icons/fa";
+import { FaEdit } from "react-icons/fa";
+import { useState } from "react";
 
-export const TabelaPrincipal = () => {
-  const [openDialogLancamento, setOpenDialogLancamento] = useState(false);
+const Contas = () => {
   const [anchorEl, setAnchorEl] = useState<HTMLButtonElement | null>(null);
-  const [tipoSelecionado, setTipoSelecionado] = useState<"receita" | "despesa">(
-    "despesa"
-  );
-
-  const handleAbrirDialogLancamento = (tipo: "receita" | "despesa") => {
-    setTipoSelecionado(tipo);
-    setOpenDialogLancamento(true);
-  };
-
-  const handleFecharDialogLancamento = () => {
-    setOpenDialogLancamento(false);
-  };
 
   const handleAbrirPopoverAcoes = (
     event: React.MouseEvent<HTMLButtonElement>
@@ -52,38 +35,23 @@ export const TabelaPrincipal = () => {
 
   return (
     <>
-      <BotaoLancamento
-        tipo="despesa"
-        onClick={() => handleAbrirDialogLancamento("despesa")}
-      />
-
-      <TableContainer component={Paper}>
+      <Button>Transferência</Button>
+      <Button>Nova conta</Button>
+      <TableContainer>
         <Table sx={{ minWidth: 650 }} size="small" aria-label="dense table">
           <TableHead>
             <TableRow>
               <TableCell align="left">
-                <Typography fontWeight={"bold"}>Nº</Typography>
+                <Typography fontWeight={"bold"}>Nome da conta</Typography>
               </TableCell>
               <TableCell align="left">
-                <Typography fontWeight={"bold"}>Lançamento</Typography>
+                <Typography fontWeight={"bold"}>Tipo de conta</Typography>
               </TableCell>
               <TableCell align="left">
-                <Typography fontWeight={"bold"}>Fornecedor</Typography>
+                <Typography fontWeight={"bold"}>Banco</Typography>
               </TableCell>
               <TableCell align="left">
-                <Typography fontWeight={"bold"}>Categoria</Typography>
-              </TableCell>
-              <TableCell align="left">
-                <Typography fontWeight={"bold"}>Vencimento</Typography>
-              </TableCell>
-              <TableCell align="left">
-                <Typography fontWeight={"bold"}>Valor</Typography>
-              </TableCell>
-              <TableCell align="left">
-                <Typography fontWeight={"bold"}>Situação</Typography>
-              </TableCell>
-              <TableCell align="left">
-                <Typography fontWeight={"bold"}>Método</Typography>
+                <Typography fontWeight={"bold"}>Saldo</Typography>
               </TableCell>
               <TableCell align="left">
                 <Typography fontWeight={"bold"}>Ações</Typography>
@@ -91,38 +59,22 @@ export const TabelaPrincipal = () => {
             </TableRow>
           </TableHead>
           <TableBody>
-            {dadosTeste.map((row) => (
+            {ContasMockData.map((c) => (
               <TableRow
-                key={row.id}
+                key={c.id}
                 sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
               >
                 <TableCell align="left">
-                  <Typography>{row.id}</Typography>
+                  <Typography>{c.nomeConta}</Typography>
                 </TableCell>
                 <TableCell align="left">
-                  <Typography>{row.lancamento}</Typography>
+                  <Typography>{c.tipoConta}</Typography>
                 </TableCell>
                 <TableCell align="left">
-                  <Typography>{row.fornecedor}</Typography>
+                  <Typography>{c.banco}</Typography>
                 </TableCell>
                 <TableCell align="left">
-                  <Typography>{row.categoria}</Typography>
-                </TableCell>
-                <TableCell align="left">
-                  <Typography>{row.vencimento}</Typography>
-                </TableCell>
-                <TableCell align="left">
-                  <Typography>{row.valor}</Typography>
-                </TableCell>
-                <TableCell align="left">
-                  <Typography
-                    color={row.situacao === "Pago" ? "success" : "error"}
-                  >
-                    {row.situacao}
-                  </Typography>
-                </TableCell>
-                <TableCell align="left">
-                  <Typography>{row.metodo}</Typography>
+                  <Typography>R${c.saldo}</Typography>
                 </TableCell>
                 <TableCell align="left">
                   <IconButton onClick={handleAbrirPopoverAcoes}>
@@ -159,12 +111,12 @@ export const TabelaPrincipal = () => {
                           gap: ".5rem",
                         }}
                       >
-                        <FaMagnifyingGlass color={colorPalette.neutral[500]} />
+                        <FaEdit color={colorPalette.neutral[500]} />
                         <Typography
                           color={colorPalette.neutral[500]}
                           textTransform={"none"}
                         >
-                          Visualizar
+                          Editar
                         </Typography>
                       </div>
                     </Button>
@@ -178,12 +130,12 @@ export const TabelaPrincipal = () => {
                           gap: ".5rem",
                         }}
                       >
-                        <FaDownload color={colorPalette.neutral[500]} />
+                        <MdDelete color={colorPalette.neutral[500]} />
                         <Typography
                           color={colorPalette.neutral[500]}
                           textTransform={"none"}
                         >
-                          Baixar
+                          Excluir
                         </Typography>
                       </div>
                     </Button>
@@ -194,11 +146,8 @@ export const TabelaPrincipal = () => {
           </TableBody>
         </Table>
       </TableContainer>
-      <DialogLancamento
-        open={openDialogLancamento}
-        onClose={handleFecharDialogLancamento}
-        tipo={tipoSelecionado}
-      />
     </>
   );
 };
+
+export default Contas;

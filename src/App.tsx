@@ -1,12 +1,13 @@
 import { LocalizationProvider } from "@mui/x-date-pickers";
-import { TabelaPrincipal } from "./containers/tabelaPrincipal/tabelaPrincipal";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
+import { RouterProvider } from "react-router-dom";
+import { router } from "./routes/routes";
 
 function App() {
   return (
     <>
       <LocalizationProvider dateAdapter={AdapterDayjs}>
-        <TabelaPrincipal />
+        <RouterProvider router={router} />
       </LocalizationProvider>
     </>
   );
