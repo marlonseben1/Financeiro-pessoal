@@ -12,24 +12,25 @@ import {
   TableRow,
   Typography,
 } from "@mui/material";
-import { ContasMockData } from "./contasMockData";
-import { MdDelete, MdOutlineDehaze } from "react-icons/md";
+import { CategoriasMockData } from "./categoriasMockData";
 import { colorPalette } from "../../theme";
+import { MdDelete, MdOutlineDehaze } from "react-icons/md";
 import { FaEdit } from "react-icons/fa";
 import { useState } from "react";
 import { BotaoCadastro } from "../../components/buttons/botaoCadastro/botaoCadastro";
-import DialogContas from "../../components/dialogs/dialogContas/dialogContas";
+import DialogCategorias from "../../components/dialogs/dialogCategorias/dialogCategorias";
 
-const Contas = () => {
-  const [openContasDialog, setOpenContasDialog] = useState(false);
+const Categorias = () => {
+  const [openCategoriasDialog, setOpenCategoriasDialog] = useState(false);
+
   const [anchorEl, setAnchorEl] = useState<HTMLButtonElement | null>(null);
 
-  const handleAbrirContasDialog = () => {
-    setOpenContasDialog(true);
+  const handleAbrirCategoriasDialog = () => {
+    setOpenCategoriasDialog(true);
   };
 
-  const handleFecharContasDialog = () => {
-    setOpenContasDialog(false);
+  const handleFecharCategoriasDialog = () => {
+    setOpenCategoriasDialog(false);
   };
 
   const handleAbrirPopoverAcoes = (
@@ -48,21 +49,21 @@ const Contas = () => {
   return (
     <>
       <BotaoCadastro
-        onClick={handleAbrirContasDialog}
-        tipo="conta"
+        onClick={handleAbrirCategoriasDialog}
+        tipo="categoria"
       ></BotaoCadastro>
       <TableContainer component={Paper}>
         <Table sx={{ minWidth: 650 }} size="small" aria-label="dense table">
           <TableHead>
             <TableRow>
               <TableCell align="left">
-                <Typography fontWeight={"bold"}>Tipo de conta</Typography>
+                <Typography fontWeight={"bold"}>Tipo</Typography>
               </TableCell>
               <TableCell align="left">
-                <Typography fontWeight={"bold"}>Banco</Typography>
+                <Typography fontWeight={"bold"}>Grupo</Typography>
               </TableCell>
               <TableCell align="left">
-                <Typography fontWeight={"bold"}>Saldo</Typography>
+                <Typography fontWeight={"bold"}>Categoria</Typography>
               </TableCell>
               <TableCell align="left">
                 <Typography fontWeight={"bold"}>Ações</Typography>
@@ -70,19 +71,21 @@ const Contas = () => {
             </TableRow>
           </TableHead>
           <TableBody>
-            {ContasMockData.map((c) => (
+            {CategoriasMockData.map((categoria) => (
               <TableRow
-                key={c.id}
+                key={categoria.id}
                 sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
               >
                 <TableCell align="left">
-                  <Typography>{c.tipoConta}</Typography>
+                  <Typography>
+                    {categoria.tipo === "receita" ? "Receita" : "Despesa"}
+                  </Typography>
                 </TableCell>
                 <TableCell align="left">
-                  <Typography>{c.banco}</Typography>
+                  <Typography>{categoria.grupo}</Typography>
                 </TableCell>
                 <TableCell align="left">
-                  <Typography>R${c.saldo}</Typography>
+                  <Typography>{categoria.categoria}</Typography>
                 </TableCell>
                 <TableCell align="left">
                   <IconButton onClick={handleAbrirPopoverAcoes}>
@@ -154,12 +157,12 @@ const Contas = () => {
           </TableBody>
         </Table>
       </TableContainer>
-      <DialogContas
-        open={openContasDialog}
-        onClose={handleFecharContasDialog}
+      <DialogCategorias
+        open={openCategoriasDialog}
+        onClose={handleFecharCategoriasDialog}
       />
     </>
   );
 };
 
-export default Contas;
+export default Categorias;
