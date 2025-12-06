@@ -98,8 +98,8 @@ export const DialogLancamento = (props: DialogLancamentoProps) => {
           </Box>
         </DialogContent>
         <DialogActions>
-          <Button onClick={props.onClose}>Cancelar</Button>
-          <Button onClick={props.onClose}>Salvar</Button>
+          <Button onClick={props.onClose} variant="secondary">Cancelar</Button>
+          <Button onClick={props.onClose} variant="primary">Salvar</Button>
         </DialogActions>
       </Dialog>
       <DialogOpcoesAdicionais
