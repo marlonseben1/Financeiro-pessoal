@@ -10,7 +10,7 @@ import {
   Typography,
 } from "@mui/material";
 import { CategoriasMockData } from "./categoriasMockData";
-import { colorPalette } from "../../theme";
+import { colorPalette } from "../../theme/colorPalette";
 import { MdDelete, MdOutlineDehaze } from "react-icons/md";
 import { FaEdit } from "react-icons/fa";
 import { useState } from "react";

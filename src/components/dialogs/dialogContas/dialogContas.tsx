@@ -12,7 +12,7 @@ import type { DialogContasProps } from "./dialogContas.types";
 import InputBanco from "../../inputs/inputBanco/inputBanco";
 import InputValor from "../../inputs/inputValor/inputValor";
 import InputNumero from "../../inputs/inputNumeroDocumento/inputNumero";
-import { colorPalette } from "../../../theme";
+import { colorPalette } from "../../../theme/colorPalette";
 import { IoClose } from "react-icons/io5";
 
 const DialogContas = (props: DialogContasProps) => {
