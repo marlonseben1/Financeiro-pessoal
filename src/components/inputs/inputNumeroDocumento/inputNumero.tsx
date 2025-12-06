@@ -15,7 +15,7 @@ const InputNumero = (props: InputNumeroProps) => {
       variant="outlined"
       fullWidth={props.fullWidth}
       required={props.required}
-    ></TextField>
+    />
   );
 };
 

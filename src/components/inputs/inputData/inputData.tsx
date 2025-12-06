@@ -6,8 +6,7 @@ interface InputDataProps {
 }
 
 const InputData = ({ tipo }: InputDataProps) => {
-  const label =
-    tipo === "lancamento" ? "Data de lançamento" : "Data de vencimento";
+  const label = tipo === "lancamento" ? "Data de lançamento" : "Data de vencimento";
 
   return <DatePicker defaultValue={dayjs()} label={label} />;
 };

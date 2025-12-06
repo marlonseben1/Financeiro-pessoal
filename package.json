@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
-    "lint": "eslint .",
+    "lint": "biome check --apply-unsafe .",
+    "format": "biome format --write .",
     "preview": "vite preview"
   },
   "dependencies": {
@@ -23,6 +24,7 @@
     "react-router-dom": "^7.9.6"
   },
   "devDependencies": {
+    "@biomejs/biome": "^2.3.8",
     "@eslint/js": "^9.36.0",
     "@types/node": "^24.6.0",
     "@types/react": "^19.1.16",

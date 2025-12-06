@@ -1,6 +1,6 @@
 import { Button, Divider, Popover, Typography } from "@mui/material";
-import type { PopoverAcoesProps } from "./popoverAcoes.types";
 import { colorPalette } from "../../theme/colorPalette";
+import type { PopoverAcoesProps } from "./popoverAcoes.types";
 
 const PopoverAcoes = ({
   id,
@@ -41,10 +41,7 @@ const PopoverAcoes = ({
               }}
             >
               {a.icon}
-              <Typography
-                color={colorPalette.neutral[500]}
-                textTransform={"none"}
-              >
+              <Typography color={colorPalette.neutral[500]} textTransform={"none"}>
                 {a.label}
               </Typography>
             </div>

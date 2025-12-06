@@ -1,5 +1,4 @@
-
-export interface BotaoCadastroProps  {
+export interface BotaoCadastroProps {
   tipo: "conta" | "categoria";
   onClick: () => void;
-};
+}

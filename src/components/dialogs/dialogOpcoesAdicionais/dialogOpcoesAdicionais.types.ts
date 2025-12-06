@@ -1,4 +1,4 @@
 export interface DialogOpcoesAdicionaisProps {
-    open: boolean,
-    onClose: () => void;
+  open: boolean;
+  onClose: () => void;
 }

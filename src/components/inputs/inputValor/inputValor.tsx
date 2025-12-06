@@ -1,6 +1,6 @@
 import { TextField } from "@mui/material";
-import { maskValor } from "../../../utils/masks/masks";
 import { useState } from "react";
+import { maskValor } from "../../../utils/masks/masks";
 
 interface InputValorProps {
   label?: string;
@@ -18,15 +18,13 @@ const InputValor = (props: InputValorProps) => {
       margin={props.margin}
       value={maskValor.format(valor)}
       error={typeof valor === "number" && valor <= 0}
-      helperText={
-        typeof valor === "number" && valor <= 0 ? "O valor não pode ser 0" : ""
-      }
+      helperText={typeof valor === "number" && valor <= 0 ? "O valor não pode ser 0" : ""}
       onChange={(e) => {
         setValor(maskValor.parse(e.target.value));
       }}
       fullWidth
       placeholder="0,00"
-    ></TextField>
+    />
   );
 };
 

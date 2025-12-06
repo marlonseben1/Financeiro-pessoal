@@ -1,4 +1,4 @@
 export interface DialogCategoriasProps {
-    open: boolean;
-    onClose: () => void;
+  open: boolean;
+  onClose: () => void;
 }
