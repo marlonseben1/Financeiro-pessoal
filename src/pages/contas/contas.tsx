@@ -11,12 +11,12 @@ import {
 } from "@mui/material";
 import { ContasMockData } from "./contasMockData";
 import { MdDelete, MdOutlineDehaze } from "react-icons/md";
-import { colorPalette } from "../../theme";
 import { useState } from "react";
 import { BotaoCadastro } from "../../components/buttons/botaoCadastro/botaoCadastro";
 import DialogContas from "../../components/dialogs/dialogContas/dialogContas";
 import PopoverAcoes from "../../components/popoverAcoes/popoverAcoes";
 import { FaEdit } from "react-icons/fa";
+import { colorPalette } from "../../theme/colorPalette";
 
 const Contas = () => {
   const [openContasDialog, setOpenContasDialog] = useState(false);
