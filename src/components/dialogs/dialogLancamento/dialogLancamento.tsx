@@ -20,8 +20,8 @@ import BotaoOpcoesAdicionais from "../../buttons/botaoOpcoesAdicionais/botaoOpco
 import DialogOpcoesAdicionais from "../dialogOpcoesAdicionais/dialogOpcoesAdicionais";
 import { useState } from "react";
 import { IoClose } from "react-icons/io5";
-import { colorPalette } from "../../../theme";
 import InputNumero from "../../inputs/inputNumeroDocumento/inputNumero";
+import { colorPalette } from "../../../theme/colorPalette";
 
 export const DialogLancamento = (props: DialogLancamentoProps) => {
   const [openOpcoesAdicionais, setOpenOpcoesAdicionais] = useState(false);
@@ -98,8 +98,8 @@ export const DialogLancamento = (props: DialogLancamentoProps) => {
           </Box>
         </DialogContent>
         <DialogActions>
-          <Button onClick={props.onClose}>Cancelar</Button>
-          <Button onClick={props.onClose}>Salvar</Button>
+          <Button onClick={props.onClose} variant="secondary">Cancelar</Button>
+          <Button onClick={props.onClose} variant="primary">Salvar</Button>
         </DialogActions>
       </Dialog>
       <DialogOpcoesAdicionais

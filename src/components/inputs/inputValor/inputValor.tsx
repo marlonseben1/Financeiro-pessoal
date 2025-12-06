@@ -24,6 +24,7 @@ const InputValor = (props: InputValorProps) => {
       onChange={(e) => {
         setValor(maskValor.parse(e.target.value));
       }}
+      fullWidth
       placeholder="0,00"
     ></TextField>
   );

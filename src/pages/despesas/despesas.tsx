@@ -18,7 +18,7 @@ import { useState } from "react";
 import { DialogLancamento } from "../../components/dialogs/dialogLancamento/dialogLancamento";
 import { despesasMockData } from "./despesasMockData";
 import { FaMagnifyingGlass } from "react-icons/fa6";
-import { colorPalette } from "../../theme";
+import { colorPalette } from "../../theme/colorPalette";
 import { FaDownload } from "react-icons/fa";
 
 export const Despesas = () => {

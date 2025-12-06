@@ -12,7 +12,7 @@ import type { DialogContasProps } from "./dialogContas.types";
 import InputBanco from "../../inputs/inputBanco/inputBanco";
 import InputValor from "../../inputs/inputValor/inputValor";
 import InputNumero from "../../inputs/inputNumeroDocumento/inputNumero";
-import { colorPalette } from "../../../theme";
+import { colorPalette } from "../../../theme/colorPalette";
 import { IoClose } from "react-icons/io5";
 
 const DialogContas = (props: DialogContasProps) => {
@@ -37,7 +37,7 @@ const DialogContas = (props: DialogContasProps) => {
               <InputBanco />
             </Grid>
             <Grid size={5}>
-              <InputNumero label="Agência" margin="normal" required />
+              <InputNumero label="Agência" margin="normal" required fullWidth/>
             </Grid>
             <Grid size={7}>
               <InputNumero
@@ -48,14 +48,14 @@ const DialogContas = (props: DialogContasProps) => {
               />
             </Grid>
             <Grid size={5}>
-              <InputValor label="Valor inicial" margin="none" />
+              <InputValor label="Valor inicial" margin="none"/>
             </Grid>
           </Grid>
         </Box>
       </DialogContent>
       <DialogActions>
-        <Button onClick={props.onClose}>Cancelar</Button>
-        <Button onClick={props.onClose}>Salvar</Button>
+        <Button onClick={props.onClose} variant="secondary">Cancelar</Button>
+        <Button onClick={props.onClose} variant="primary">Salvar</Button>
       </DialogActions>
     </Dialog>
   );

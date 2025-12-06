@@ -1,6 +1,6 @@
 import { Button, Divider, Popover, Typography } from "@mui/material";
-import { colorPalette } from "../../theme";
 import type { PopoverAcoesProps } from "./popoverAcoes.types";
+import { colorPalette } from "../../theme/colorPalette";
 
 const PopoverAcoes = ({
   id,

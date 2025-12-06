@@ -1,7 +1,7 @@
 import { Button } from "@mui/material";
 import { FaLongArrowAltUp, FaLongArrowAltDown } from "react-icons/fa";
 import type { BotaoLancamentoProps } from "./botaoLancamento.types";
-import { colorPalette } from "../../../theme";
+import { colorPalette } from "../../../theme/colorPalette";
 
 export const BotaoLancamento = ({ tipo, onClick }: BotaoLancamentoProps) => {
   const icone =
