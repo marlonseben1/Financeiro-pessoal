@@ -1,6 +1,6 @@
 import { Button } from "@mui/material";
-import type { BotaoCadastroProps } from "./botaoCadastro.types";
 import { colorPalette } from "../../../theme/colorPalette";
+import type { BotaoCadastroProps } from "./botaoCadastro.types";
 
 export const BotaoCadastro = ({ tipo, onClick }: BotaoCadastroProps) => {
   return (

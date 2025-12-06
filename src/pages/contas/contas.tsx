@@ -9,14 +9,14 @@ import {
   TableRow,
   Typography,
 } from "@mui/material";
-import { ContasMockData } from "./contasMockData";
-import { MdDelete, MdOutlineDehaze } from "react-icons/md";
 import { useState } from "react";
+import { FaEdit } from "react-icons/fa";
+import { MdDelete, MdOutlineDehaze } from "react-icons/md";
 import { BotaoCadastro } from "../../components/buttons/botaoCadastro/botaoCadastro";
 import DialogContas from "../../components/dialogs/dialogContas/dialogContas";
 import PopoverAcoes from "../../components/popoverAcoes/popoverAcoes";
-import { FaEdit } from "react-icons/fa";
 import { colorPalette } from "../../theme/colorPalette";
+import { ContasMockData } from "./contasMockData";
 
 const Contas = () => {
   const [openContasDialog, setOpenContasDialog] = useState(false);
@@ -30,9 +30,7 @@ const Contas = () => {
     setOpenContasDialog(false);
   };
 
-  const handleAbrirPopoverAcoes = (
-    event: React.MouseEvent<HTMLButtonElement>
-  ) => {
+  const handleAbrirPopoverAcoes = (event: React.MouseEvent<HTMLButtonElement>) => {
     setAnchorEl(event.currentTarget);
   };
 
@@ -45,10 +43,7 @@ const Contas = () => {
 
   return (
     <>
-      <BotaoCadastro
-        onClick={handleAbrirContasDialog}
-        tipo="conta"
-      ></BotaoCadastro>
+      <BotaoCadastro onClick={handleAbrirContasDialog} tipo="conta" />
       <TableContainer component={Paper}>
         <Table sx={{ minWidth: 650 }} size="small" aria-label="dense table">
           <TableHead>
@@ -69,14 +64,9 @@ const Contas = () => {
           </TableHead>
           <TableBody>
             {ContasMockData.map((c) => (
-              <TableRow
-                key={c.id}
-                sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-              >
+              <TableRow key={c.id} sx={{ "&:last-child td, &:last-child th": { border: 0 } }}>
                 <TableCell align="left">
-                  <Typography>
-                    {c.tipoConta === "corrente" ? "Corrente" : "Poupança"}
-                  </Typography>
+                  <Typography>{c.tipoConta === "corrente" ? "Corrente" : "Poupança"}</Typography>
                 </TableCell>
                 <TableCell align="left">
                   <Typography>{c.banco}</Typography>
@@ -86,10 +76,7 @@ const Contas = () => {
                 </TableCell>
                 <TableCell align="left">
                   <IconButton onClick={handleAbrirPopoverAcoes}>
-                    <MdOutlineDehaze
-                      size={22}
-                      color={colorPalette.neutral[900]}
-                    />
+                    <MdOutlineDehaze size={22} color={colorPalette.neutral[900]} />
                   </IconButton>
                   <PopoverAcoes
                     id={id}
@@ -100,14 +87,12 @@ const Contas = () => {
                       {
                         label: "Editar",
                         icon: <FaEdit color={colorPalette.neutral[500]} />,
-                        onClick: () =>
-                          console.log("Implementar posteriormente"),
+                        onClick: () => console.log("Implementar posteriormente"),
                       },
                       {
                         label: "Excluir",
                         icon: <MdDelete color={colorPalette.neutral[500]} />,
-                        onClick: () =>
-                          console.log("Implementar posteriormente"),
+                        onClick: () => console.log("Implementar posteriormente"),
                       },
                     ]}
                   />
@@ -117,10 +102,7 @@ const Contas = () => {
           </TableBody>
         </Table>
       </TableContainer>
-      <DialogContas
-        open={openContasDialog}
-        onClose={handleFecharContasDialog}
-      />
+      <DialogContas open={openContasDialog} onClose={handleFecharContasDialog} />
     </>
   );
 };

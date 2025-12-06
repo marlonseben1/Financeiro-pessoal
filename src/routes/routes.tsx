@@ -1,8 +1,8 @@
 import { createBrowserRouter } from "react-router-dom";
 import MainLayout from "../layout/app/mainLayout/mainLayout";
-import { Despesas } from "../pages/despesas/despesas.tsx";
-import Contas from "../pages/contas/contas";
 import Categorias from "../pages/categorias/categorias.tsx";
+import Contas from "../pages/contas/contas";
+import { Despesas } from "../pages/despesas/despesas.tsx";
 
 export const router = createBrowserRouter([
   {

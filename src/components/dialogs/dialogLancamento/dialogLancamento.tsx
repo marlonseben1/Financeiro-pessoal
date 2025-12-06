@@ -8,20 +8,20 @@ import {
   Grid,
   IconButton,
 } from "@mui/material";
-import type { DialogLancamentoProps } from "./dialogLancamento.types";
+import { useState } from "react";
+import { IoClose } from "react-icons/io5";
+import { colorPalette } from "../../../theme/colorPalette";
+import BotaoOpcoesAdicionais from "../../buttons/botaoOpcoesAdicionais/botaoOpcoesAdicionais";
 import InputCategoria from "../../inputs/inputCategoria/inputCategoria";
 import InputConta from "../../inputs/inputConta/inputConta";
 import InputData from "../../inputs/inputData/inputData";
 import InputDescricao from "../../inputs/inputDescricao/inputDescricao";
-import InputTipoDocumento from "../../inputs/inputTipoDocumento/inputTipoDocumento";
 import InputFornecedor from "../../inputs/inputFornecedor/inputFornecedor";
-import InputValor from "../../inputs/inputValor/inputValor";
-import BotaoOpcoesAdicionais from "../../buttons/botaoOpcoesAdicionais/botaoOpcoesAdicionais";
-import DialogOpcoesAdicionais from "../dialogOpcoesAdicionais/dialogOpcoesAdicionais";
-import { useState } from "react";
-import { IoClose } from "react-icons/io5";
 import InputNumero from "../../inputs/inputNumeroDocumento/inputNumero";
-import { colorPalette } from "../../../theme/colorPalette";
+import InputTipoDocumento from "../../inputs/inputTipoDocumento/inputTipoDocumento";
+import InputValor from "../../inputs/inputValor/inputValor";
+import DialogOpcoesAdicionais from "../dialogOpcoesAdicionais/dialogOpcoesAdicionais";
+import type { DialogLancamentoProps } from "./dialogLancamento.types";
 
 export const DialogLancamento = (props: DialogLancamentoProps) => {
   const [openOpcoesAdicionais, setOpenOpcoesAdicionais] = useState(false);
@@ -90,16 +90,18 @@ export const DialogLancamento = (props: DialogLancamentoProps) => {
               </Grid>
 
               <Grid size={2} display={"flex"} justifyContent={"end"}>
-                <BotaoOpcoesAdicionais
-                  onClick={handleAbrirDialogOpcoesAdicionais}
-                />
+                <BotaoOpcoesAdicionais onClick={handleAbrirDialogOpcoesAdicionais} />
               </Grid>
             </Grid>
           </Box>
         </DialogContent>
         <DialogActions>
-          <Button onClick={props.onClose} variant="secondary">Cancelar</Button>
-          <Button onClick={props.onClose} variant="primary">Salvar</Button>
+          <Button onClick={props.onClose} variant="secondary">
+            Cancelar
+          </Button>
+          <Button onClick={props.onClose} variant="primary">
+            Salvar
+          </Button>
         </DialogActions>
       </Dialog>
       <DialogOpcoesAdicionais

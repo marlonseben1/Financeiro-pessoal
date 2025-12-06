@@ -12,8 +12,8 @@ export const theme = createTheme({
             height: "3rem",
             transition: "background-color 0.3s ease",
             ":hover": {
-              backgroundColor: "#5e34d1",}
-
+              backgroundColor: "#5e34d1",
+            },
           },
         },
         {
@@ -24,7 +24,8 @@ export const theme = createTheme({
             height: "3rem",
             transition: "background-color 0.3s ease",
             ":hover": {
-              backgroundColor: "#8c8c8cff", }
+              backgroundColor: "#8c8c8cff",
+            },
           },
         },
       ],

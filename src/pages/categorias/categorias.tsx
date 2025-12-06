@@ -9,14 +9,14 @@ import {
   TableRow,
   Typography,
 } from "@mui/material";
-import { CategoriasMockData } from "./categoriasMockData";
-import { colorPalette } from "../../theme/colorPalette";
-import { MdDelete, MdOutlineDehaze } from "react-icons/md";
-import { FaEdit } from "react-icons/fa";
 import { useState } from "react";
+import { FaEdit } from "react-icons/fa";
+import { MdDelete, MdOutlineDehaze } from "react-icons/md";
 import { BotaoCadastro } from "../../components/buttons/botaoCadastro/botaoCadastro";
 import DialogCategorias from "../../components/dialogs/dialogCategorias/dialogCategorias";
 import PopoverAcoes from "../../components/popoverAcoes/popoverAcoes";
+import { colorPalette } from "../../theme/colorPalette";
+import { CategoriasMockData } from "./categoriasMockData";
 
 const Categorias = () => {
   const [openCategoriasDialog, setOpenCategoriasDialog] = useState(false);
@@ -31,9 +31,7 @@ const Categorias = () => {
     setOpenCategoriasDialog(false);
   };
 
-  const handleAbrirPopoverAcoes = (
-    event: React.MouseEvent<HTMLButtonElement>
-  ) => {
+  const handleAbrirPopoverAcoes = (event: React.MouseEvent<HTMLButtonElement>) => {
     setAnchorEl(event.currentTarget);
   };
 
@@ -46,10 +44,7 @@ const Categorias = () => {
 
   return (
     <>
-      <BotaoCadastro
-        onClick={handleAbrirCategoriasDialog}
-        tipo="categoria"
-      ></BotaoCadastro>
+      <BotaoCadastro onClick={handleAbrirCategoriasDialog} tipo="categoria" />
       <TableContainer component={Paper}>
         <Table sx={{ minWidth: 650 }} size="small" aria-label="dense table">
           <TableHead>
@@ -75,9 +70,7 @@ const Categorias = () => {
                 sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
               >
                 <TableCell align="left">
-                  <Typography>
-                    {categoria.tipo === "receita" ? "Receita" : "Despesa"}
-                  </Typography>
+                  <Typography>{categoria.tipo === "receita" ? "Receita" : "Despesa"}</Typography>
                 </TableCell>
                 <TableCell align="left">
                   <Typography>{categoria.grupo}</Typography>
@@ -87,10 +80,7 @@ const Categorias = () => {
                 </TableCell>
                 <TableCell align="left">
                   <IconButton onClick={handleAbrirPopoverAcoes}>
-                    <MdOutlineDehaze
-                      size={22}
-                      color={colorPalette.neutral[900]}
-                    />
+                    <MdOutlineDehaze size={22} color={colorPalette.neutral[900]} />
                   </IconButton>
                   <PopoverAcoes
                     id={id}
@@ -101,27 +91,22 @@ const Categorias = () => {
                       {
                         label: "Editar",
                         icon: <FaEdit color={colorPalette.neutral[500]} />,
-                        onClick: () =>
-                          console.log("Implementar posteriormente"),
+                        onClick: () => console.log("Implementar posteriormente"),
                       },
                       {
                         label: "Excluir",
                         icon: <MdDelete color={colorPalette.neutral[500]} />,
-                        onClick: () =>
-                          console.log("Implementar posteriormente"),
+                        onClick: () => console.log("Implementar posteriormente"),
                       },
                     ]}
-                  ></PopoverAcoes>
+                  />
                 </TableCell>
               </TableRow>
             ))}
           </TableBody>
         </Table>
       </TableContainer>
-      <DialogCategorias
-        open={openCategoriasDialog}
-        onClose={handleFecharCategoriasDialog}
-      />
+      <DialogCategorias open={openCategoriasDialog} onClose={handleFecharCategoriasDialog} />
     </>
   );
 };

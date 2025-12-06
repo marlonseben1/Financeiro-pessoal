@@ -1,32 +1,30 @@
 import {
-  Typography,
-  Paper,
-  IconButton,
-  TableContainer,
-  Table,
-  TableHead,
-  TableRow,
-  TableCell,
-  TableBody,
-  Popover,
   Button,
   Divider,
+  IconButton,
+  Paper,
+  Popover,
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
+  Typography,
 } from "@mui/material";
+import { useState } from "react";
+import { FaDownload } from "react-icons/fa";
+import { FaMagnifyingGlass } from "react-icons/fa6";
 import { MdOutlineDehaze } from "react-icons/md";
 import { BotaoLancamento } from "../../components/buttons/botaoLancamento/botaoLancamento";
-import { useState } from "react";
 import { DialogLancamento } from "../../components/dialogs/dialogLancamento/dialogLancamento";
-import { despesasMockData } from "./despesasMockData";
-import { FaMagnifyingGlass } from "react-icons/fa6";
 import { colorPalette } from "../../theme/colorPalette";
-import { FaDownload } from "react-icons/fa";
+import { despesasMockData } from "./despesasMockData";
 
 export const Despesas = () => {
   const [openDialogLancamento, setOpenDialogLancamento] = useState(false);
   const [anchorEl, setAnchorEl] = useState<HTMLButtonElement | null>(null);
-  const [tipoSelecionado, setTipoSelecionado] = useState<"receita" | "despesa">(
-    "despesa"
-  );
+  const [tipoSelecionado, setTipoSelecionado] = useState<"receita" | "despesa">("despesa");
 
   const handleAbrirDialogLancamento = (tipo: "receita" | "despesa") => {
     setTipoSelecionado(tipo);
@@ -37,9 +35,7 @@ export const Despesas = () => {
     setOpenDialogLancamento(false);
   };
 
-  const handleAbrirPopoverAcoes = (
-    event: React.MouseEvent<HTMLButtonElement>
-  ) => {
+  const handleAbrirPopoverAcoes = (event: React.MouseEvent<HTMLButtonElement>) => {
     setAnchorEl(event.currentTarget);
   };
 
@@ -52,10 +48,7 @@ export const Despesas = () => {
 
   return (
     <>
-      <BotaoLancamento
-        tipo="despesa"
-        onClick={() => handleAbrirDialogLancamento("despesa")}
-      />
+      <BotaoLancamento tipo="despesa" onClick={() => handleAbrirDialogLancamento("despesa")} />
 
       <TableContainer component={Paper}>
         <Table sx={{ minWidth: 650 }} size="small" aria-label="dense table">
@@ -92,10 +85,7 @@ export const Despesas = () => {
           </TableHead>
           <TableBody>
             {despesasMockData.map((row) => (
-              <TableRow
-                key={row.id}
-                sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-              >
+              <TableRow key={row.id} sx={{ "&:last-child td, &:last-child th": { border: 0 } }}>
                 <TableCell align="left">
                   <Typography>{row.id}</Typography>
                 </TableCell>
@@ -115,9 +105,7 @@ export const Despesas = () => {
                   <Typography>{row.valor}</Typography>
                 </TableCell>
                 <TableCell align="left">
-                  <Typography
-                    color={row.situacao === "Pago" ? "success" : "error"}
-                  >
+                  <Typography color={row.situacao === "Pago" ? "success" : "error"}>
                     {row.situacao}
                   </Typography>
                 </TableCell>
@@ -126,10 +114,7 @@ export const Despesas = () => {
                 </TableCell>
                 <TableCell align="left">
                   <IconButton onClick={handleAbrirPopoverAcoes}>
-                    <MdOutlineDehaze
-                      size={22}
-                      color={colorPalette.neutral[900]}
-                    />
+                    <MdOutlineDehaze size={22} color={colorPalette.neutral[900]} />
                   </IconButton>
                   <Popover
                     id={id}
@@ -160,10 +145,7 @@ export const Despesas = () => {
                         }}
                       >
                         <FaMagnifyingGlass color={colorPalette.neutral[500]} />
-                        <Typography
-                          color={colorPalette.neutral[500]}
-                          textTransform={"none"}
-                        >
+                        <Typography color={colorPalette.neutral[500]} textTransform={"none"}>
                           Visualizar
                         </Typography>
                       </div>
@@ -179,10 +161,7 @@ export const Despesas = () => {
                         }}
                       >
                         <FaDownload color={colorPalette.neutral[500]} />
-                        <Typography
-                          color={colorPalette.neutral[500]}
-                          textTransform={"none"}
-                        >
+                        <Typography color={colorPalette.neutral[500]} textTransform={"none"}>
                           Baixar
                         </Typography>
                       </div>

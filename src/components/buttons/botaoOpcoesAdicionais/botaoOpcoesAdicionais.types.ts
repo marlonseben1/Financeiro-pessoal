@@ -1,3 +1,3 @@
 export interface botaoOpcoesAdicionaisProps {
-    onClick: () => void;
+  onClick: () => void;
 }

@@ -1,4 +1,4 @@
 export interface DialogContasProps {
-    open: boolean;
-    onClose: () => void;
+  open: boolean;
+  onClose: () => void;
 }

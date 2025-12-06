@@ -1,6 +1,6 @@
 import { InputAdornment, MenuItem, TextField } from "@mui/material";
-import { mockDataFornecedor } from "./inputFornecedor.static";
 import { BsPlusSquareFill } from "react-icons/bs";
+import { mockDataFornecedor } from "./inputFornecedor.static";
 
 const InputFornecedor = () => {
   return (
@@ -27,8 +27,7 @@ const InputFornecedor = () => {
     >
       {mockDataFornecedor.map((fornecedor) => (
         <MenuItem key={fornecedor.id} value={fornecedor.nome}>
-          {fornecedor.nome} -{" "}
-          {fornecedor.cpf ? fornecedor.cpf : fornecedor.cnpj}
+          {fornecedor.nome} - {fornecedor.cpf ? fornecedor.cpf : fornecedor.cnpj}
         </MenuItem>
       ))}
     </TextField>
